@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acertijos Interactivos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .acertijo {
+            display: none;
+            margin-top: 20px;
+        }
+        .acertijo input {
+            padding: 5px;
+            font-size: 1em;
+        }
+        .acertijo button {
+            padding: 5px 10px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .acertijo button:hover {
+            background-color: #45a049;
+        }
+        .resultado img {
+            margin-top: 20px;
+            display: none;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¡Resuelve los Acertijos!</h1>
+
+    <!-- Acertijo 1 -->
+    <div id="acertijo1" class="acertijo" style="display: block;">
+        <p><strong>Acertijo 1:</strong> Soy más ligero que el aire, pero aún un niño puede retenerme. ¿Qué soy?</p>
+        <input type="text" id="respuesta1" placeholder="Escribe tu respuesta">
+        <button onclick="verificarRespuesta(1, 'aliento')">Verificar</button>
+    </div>
+
+    <!-- Acertijo 2 -->
+    <div id="acertijo2" class="acertijo">
+        <p><strong>Acertijo 2:</strong> Cuanto más seco, más húmedo estoy. ¿Qué soy?</p>
+        <input type="text" id="respuesta2" placeholder="Escribe tu respuesta">
+        <button onclick="verificarRespuesta(2, 'toalla')">Verificar</button>
+    </div>
+
+    <!-- Acertijo 3 -->
+    <div id="acertijo3" class="acertijo">
+        <p><strong>Acertijo 3:</strong> Si me nombras, me rompo. ¿Qué soy?</p>
+        <input type="text" id="respuesta3" placeholder="Escribe tu respuesta">
+        <button onclick="verificarRespuesta(3, 'silencio')">Verificar</button>
+    </div>
+
+    <!-- Acertijo 4 -->
+    <div id="acertijo4" class="acertijo">
+        <p><strong>Acertijo 4:</strong> Vuelo sin alas, lloro sin ojos. ¿Qué soy?</p>
+        <input type="text" id="respuesta4" placeholder="Escribe tu respuesta">
+        <button onclick="verificarRespuesta(4, 'nube')">Verificar</button>
+    </div>
+
+    <!-- Resultado Final -->
+    <div id="resultadoFinal" class="resultado">
+        <h2>¡Felicidades, has resuelto todos los acertijos!</h2>
+        <img id="imagenFinal" src="" alt="Imagen final">
+    </div>
+
+    <script>
+        function verificarRespuesta(numAcertijo, respuestaCorrecta) {
+            let respuesta = document.getElementById('respuesta' + numAcertijo).value.toLowerCase();
+            if (respuesta === respuestaCorrecta) {
+                alert('¡Correcto!');
+                document.getElementById('acertijo' + numAcertijo).style.display = 'none';
+                if (numAcertijo < 4) {
+                    document.getElementById('acertijo' + (numAcertijo + 1)).style.display = 'block';
+                } else {
+                    mostrarResultado();
+                }
+            } else {
+                alert('Respuesta incorrecta, inténtalo de nuevo.');
+            }
+        }
+
+        function mostrarResultado() {
+            document.getElementById('imagenFinal').src = 'ruta/a/tu/imagen.jpg'; // Cambia esto por la URL o ruta correcta de tu imagen
+            document.getElementById('imagenFinal').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
